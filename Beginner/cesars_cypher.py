@@ -1,43 +1,63 @@
-#Take in text input to encrypt
+message = input("What message do you want encrypted : ")
 
-#Take in number to decide by how much the shift should be by
+key = int(input("How many characters should we shift (1 - 26) : "))
 
-# A - Z 65 - 90
+secret_message = ""
 
-#if key is bigger or smaller than the unicode we add or subtract it by 26
+for char in message:
 
-#ord(letter)
+    if char.isalpha():
+        char_code = ord(char)
+        char_code += key
 
-#chr(code)
+        # if bigger than z subtract 26
 
-text = input("Please input the text to encrypt : ")
+        if char.isupper():
+            if char_code > ord('Z'):
+                char_code -= 26
+            if char_code < ord('A'):
+                char_code += 26
+        else:
+            if char_code > ord('z'):
+                char_code -= 26
+            if char_code < ord('a'):
+                char_code += 26
 
-text = text.upper()
-key = input("Please give the number or encryption shift : ")
+        # Convert from code to message and add message
 
-key = int(key)
-while key > 26:
-    key = key - 26
-    
-print(key)
+        secret_message += chr(char_code)
 
-while  key <= 26 and key >= 0:
+    else:
+        secret_message += char
 
-    encrypt = ""
+print("Encrypted :", secret_message)
 
-    for char in text:
-        encrypt += str(ord(char) + key)
+key = -key
 
-    print("The message has been successfully encrypted : ",encrypt)
+orig_message = ""
 
-    print("Decrypting the Message")
+for char in secret_message:
+    if char.isalpha():
+        char_code = ord(char)
+        char_code += key
 
-    text = ""
+        # if bigger than z subtract 26
+        if char.isupper():
+            if char_code > ord('Z'):
+                char_code -= 26
+            if char_code < ord('A'):
+                char_code += 26
+        else:
+            if char_code > ord('z'):
+                char_code -= 26
+            if char_code < ord('a'):
+                char_code += 26
 
-    for i in range(0,len(encrypt)-1,2):
-        new_code = encrypt[i] + encrypt[i+1]
+        # Convert from code to message and add message
 
-        text += chr(int(new_code) - key)
+        orig_message += chr(char_code)
 
-    print("The Message was : ",text)
-    break;
+    else:
+        orig_message += char
+
+print("Decrypted :", orig_message)

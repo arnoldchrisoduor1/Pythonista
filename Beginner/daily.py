@@ -1,24 +1,59 @@
-#take input of time,investment and rate
+# Creating cesar's cypher
 
-#calculate the interset per year and add to overall investment
+message = input("Give us a message to encrypt : ")
 
-invest = input("Please give the amount you wish to invest")
-invest  = int(invest)
+key = int(input("Give a key (0 - 26) : "))
 
-rate = input("Please give the rate you expect form this investment")
-rate  = float(rate)
+secret_message = ""
 
-time = ("For how long will you be saving your money with us ? :")
-time = int(time)
+for char in message:
+    if char.isalpha():
+        char_code = ord(char)
+        char_code += key
 
-#calculating interest
+        if char.isupper():
+            if char_code > ord('Z'):
+                char_code -= 26
+            if char_code < ord('A'):
+                char_code += 26
 
-time = time + 1
+        else:
+            if char_code < ord('z'):
+                char_code -= 26
+            if char_code < ord('a'):
+                char_code += 26
 
-for n in range(time):
-    interest = invest * (rate/100)
-    compound = invest + interest
+        secret_message += chr(char_code)
 
-time = time - 1
+    else:
 
-print("Your investment after {} year(s) is {} ".format(time,compound))
+        secret_message += char
+print("Encrypted",secret_message)
+
+key = -key
+
+orig_message = ""
+
+for char in secret_message:
+    if char.isalpha():
+        char_code = ord(char)
+        char_code += key
+
+        if char.isupper():
+            if char_code > ord('Z'):
+                char_code -= 26
+            if char_code < ord('A'):
+                char_code += 26
+
+        else:
+            if char_code > ord('z'):
+                char_code -= 26
+            if char_code < ord('a'):
+                char_code += 26
+
+        orig_message += chr(char_code)
+
+    else:
+
+        orig_message += char
+print("Decrypted",orig_message)
