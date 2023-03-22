@@ -1,36 +1,38 @@
-def rec_area():
-    width = float(input("Give the width : "))
-    length = float(input("Give the length : "))
-
-    area = width * length
-
-    print("The area is = ",area)
-
-
-def circ_area():
-    radius = float(input("Please give the radius : "))
-    pi = 3.14
-
-    area = radius * radius * pi
-
-    print("The area is {:.2f}",area)
-
-
-def get_area(shape):
-    shape = shape.lower()
-
-    if shape == "rec":
-        rec_area()
-    if shape == "circ":
-        circ_area()
+def factorial(n):
+    if n <= 1:
+        return 1
     else:
-        print("Sorry we could not find your shape")
+        result = n * factorial(n - 1)
+        return result
+
+print(factorial(5))
+
+def fibonacci(n):
+    if n == 1:
+        return 1
+    if n == 0:
+        return 0
+    else:
+        result = fibonacci(n - 1) + fibonacci(n - 2)
+        return result
+
+print(fibonacci(4))
+print(fibonacci(5))
+print(fibonacci(6))
+print(fibonacci(20))
+print(fibonacci(7))
+print(fibonacci(9))
 
 
-def main():
-    shape = input("For which shape do you want to find the area for")
+customer = []
 
-    get_area(shape)
+while True:
+    ask = input("Do you want to input name(y/n) : ")
+
+    if ask == 'n':
+        break
+    else:
+        fName, lName = input("Give your first and last name : ").split()
+        customer.append({"fName" :fName, "lName" : lName})
 
 
-main()
