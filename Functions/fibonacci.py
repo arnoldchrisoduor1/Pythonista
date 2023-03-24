@@ -6,8 +6,16 @@ def fibonacci(n):
         return 1
     else:
         result = fibonacci(n-1) + fibonacci(n-2)
-        num_list.append(result)
-        return num_list
+        return result
 
-print(fibonacci(9))
 
+numFibValues = int(input("How many fibonacci values do you want : "))
+
+i = 1
+while i < numFibValues:
+    fibValue = fibonacci(i)
+    print(fibValue)
+
+    i += 1
+
+print("All Done!")

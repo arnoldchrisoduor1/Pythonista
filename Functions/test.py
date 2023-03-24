@@ -1,38 +1,22 @@
-def factorial(n):
-    if n <= 1:
-        return 1
-    else:
-        result = n * factorial(n - 1)
-        return result
+import os
 
-print(factorial(5))
+with open("mydata.txt", mode = "w", encoding="utf-8") as myFile:
+    myFile.write("Some text\nAnother text\nAn even more random text\nThis is the last line of the random texts")
 
-def fibonacci(n):
-    if n == 1:
-        return 1
-    if n == 0:
-        return 0
-    else:
-        result = fibonacci(n - 1) + fibonacci(n - 2)
-        return result
+with open("mydata.txt", encoding="utf-8") as myFile:
+    print(myFile.read())
 
-print(fibonacci(4))
-print(fibonacci(5))
-print(fibonacci(6))
-print(fibonacci(20))
-print(fibonacci(7))
-print(fibonacci(9))
+#print(myFile.closed)
+#print(myFile.name)
+#print(myFile.mode)
 
+os.rename("mydata.txt", "mydata2.txt")
+os.remove("mydata2.txt")
+os.mkdir("mydir")
+os.chdir("mydir")
 
-customer = []
+print("Current working directory : ",os.getcwd())
 
-while True:
-    ask = input("Do you want to input name(y/n) : ")
-
-    if ask == 'n':
-        break
-    else:
-        fName, lName = input("Give your first and last name : ").split()
-        customer.append({"fName" :fName, "lName" : lName})
-
-
+os.chdir("..")
+print("current directory : ",os.getcwd())
+os.rmdir("mydir")
