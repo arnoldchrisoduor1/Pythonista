@@ -53,6 +53,8 @@ class Animal:
 # Create a Mammal class that inherits from Animal
 # You can inherit from multiple classes by separating
 # the classes with a comma in the parentheses
+
+# inheritance
 class Mammal(Animal):
     def __init__(self, birthType="born alive",
                  appearance="hair or fur",
