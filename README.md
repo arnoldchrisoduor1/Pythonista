@@ -9,7 +9,7 @@ This Repo has mini python projects.
 - Classes.
 - Inheritance.
 
-## Algoriths.
+## Algorithms.
 
 -Bubble sort Algorithm.
 
