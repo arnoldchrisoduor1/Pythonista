@@ -1,59 +1,35 @@
-# Creating cesar's cypher
+#Random numbers in percentage
+import random
+import time
 
-message = input("Give us a message to encrypt : ")
+start_time  = time.time()
 
-key = int(input("Give a key (0 - 26) : "))
+q = int(input("Loop how many times: "))
 
-secret_message = ""
+even = 0
+even_p = 0
+odd = 0
+odd_p = 0
 
-for char in message:
-    if char.isalpha():
-        char_code = ord(char)
-        char_code += key
-
-        if char.isupper():
-            if char_code > ord('Z'):
-                char_code -= 26
-            if char_code < ord('A'):
-                char_code += 26
-
-        else:
-            if char_code < ord('z'):
-                char_code -= 26
-            if char_code < ord('a'):
-                char_code += 26
-
-        secret_message += chr(char_code)
-
+for n in range(q):
+    rand_num = random.randrange(1, 1001)
+    if rand_num % 2 == 0:
+        even += 1
+        print("{} is even". format(rand_num))
     else:
+        odd += 1
+        print("{} is an odd number ".format(rand_num))
 
-        secret_message += char
-print("Encrypted",secret_message)
+total = even + odd
 
-key = -key
+even_p = (even/total) * 100
+odd_p = (odd/total) * 100
 
-orig_message = ""
+print("Probability of an odd number ",odd_p)
+print("Probability of an even number ",even_p)
 
-for char in secret_message:
-    if char.isalpha():
-        char_code = ord(char)
-        char_code += key
+end_time  = time.time()
 
-        if char.isupper():
-            if char_code > ord('Z'):
-                char_code -= 26
-            if char_code < ord('A'):
-                char_code += 26
+execution_time = end_time - start_time
 
-        else:
-            if char_code > ord('z'):
-                char_code -= 26
-            if char_code < ord('a'):
-                char_code += 26
-
-        orig_message += chr(char_code)
-
-    else:
-
-        orig_message += char
-print("Decrypted",orig_message)
+print("Execution time : {}".format(execution_time))
