@@ -54,4 +54,36 @@ print("After : ",mylist)
 #use del mylist to delete entire list
 #clear() clears the entire list - exists with nothing in it.
 
+#copying lists the copy() function
+print("\n")
+print("Copying lists")
+print("Initial : ",mylist)
+nlist = mylist.copy()
+print("After : ",nlist)
+
+#copying using the list function
+print("\n")
+print("Copying using the 'list' method")
+mlist = list(mylist)
+print(mlist)
+
+#joining two lists by adding
+print("\n")
+print("Joining two lists by adding")
+list1 = ["cherry", "apples", "oranges"]
+list2 = [2, 5, 6, 3]
+
+list3 = list1 + list2
+
+print(list3)
+
+#Joining by appending
+print("\n")
+print("Joining by apending")
+for x in list1:
+    list2.append(x)
+print(list2)
+
+#joining by extending can also work -  see extend above.
+
 

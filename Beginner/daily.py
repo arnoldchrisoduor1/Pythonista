@@ -1,8 +1,6 @@
-a = "This text has alot of spaces"
+class myclass():
+    def __len__(self):
+        return 0
 
-print(a)
-print("\n")
-print(a.replace("T", "J"))
-
-X = "Hello, world"
-print(X.split(","))
+myobj = myclass()
+print(bool(myobj))
