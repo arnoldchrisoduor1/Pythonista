@@ -41,9 +41,29 @@ class kitten(Cat):
         self.born = year
 
     def welcome(self):
-        print("Today we welcome ",self.firstname, self.lastname, " to the family, K was born in " ,self.born)
+        print("Today we welcome ",self.firstname,
+               self.lastname, " to the family, K was born in " ,self.born)
 
 k = kitten("Jucinta", "adhoch", 2005)
 k.welcome()
 print()
         
+#Scopes.
+#Variables are available to functions within functions.
+
+
+#Python treats the same variable name used as the,
+#local and global variables as different.
+
+#using the 'global' keyword in local scope to create,
+#a global variable.
+
+print("Using the 'global'  keyword")
+def thisfunc():
+    global x
+    x = 87
+
+thisfunc()
+print(x)
+#This can also be used to change the value of a global variable,
+#in a function.
